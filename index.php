@@ -5,11 +5,14 @@
 	<script src="jquery-3.4.1.min.js"></script>
 	<script type="text/javascript" src="style-js.js"></script>
 	<title>EEDMIS</title>
-	<h1>Welcome to<br>EEDMO Management Information System</h1>
+	<!--  -->
 </head>
 
 <body>
-
+	<center>
+		<h1 id="title">Welcome to<br>EEDMO Management Information System</h1>
+	</center>
+<div id="main">
 <main>
 
   <input id="tab1" type="radio" name="tabs" checked>
@@ -61,6 +64,8 @@
   </section>
 
 </main>
+</div>
+
 </div>
   
 </body>
