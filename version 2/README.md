@@ -1,4 +1,4 @@
 # EEDMIS
-EEDMO (Management Information System) - Thesis
+EEDMO (Management Information System) - UI version 2
 
-*UI version 1  and verison 2 is added!
+**Smooth Material Look and Feel**
