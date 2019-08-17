@@ -1,3 +1,9 @@
+<?php
+    include "connect.php";
+    
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,84 +34,98 @@
 			<h1>Welcome to EEDMIS!</h1>
 		</center>
 	</div>
+        
     <div class="container">
-        <div class="flat-form">
-            <ul class="tabs">
-                <li>
-                    <a href="#login" class="active">Login</a>
-                </li>
-                <li>
-                    <a href="#register">Register</a>
-                </li>
-                <li>
-                    <a href="#reset">Reset Password</a>
-                </li>
-            </ul>
-            <div id="login" class="form-action show">
-                <h1>Login to EEDMIS!</h1>
-                <p>
-                    Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
-                    Maecenas sed diam eget risus varius bladit sit amet non
-                </p>
-                <form>
-                    <ul>
-                        <li>
-                            <input type="text" placeholder="Username" />
-                        </li>
-                        <li>
-                            <input type="password" placeholder="Password" />
-                        </li>
-                        <li>
-                            <input type="submit" value="Login" class="button" />
-                        </li>
-                    </ul>
-                </form>
-            </div>
-            <!--/#login.form-action-->
-            <div id="register" class="form-action hide">
-                <h1>Register</h1>
-                <p>
-                    You should totally sign up for our super awesome service.
-                    It's what all the cool kids are doing nowadays.
-                </p>
-                <form>
-                    <ul>
-                        <li>
-                            <input type="text" placeholder="Username" />
-                        </li>
-                        <li>
-                            <input type="password" placeholder="Password" />
-                        </li>
-                        <li>
-                            <input type="submit" value="Sign Up" class="button" />
-                        </li>
-                    </ul>
-                </form>
-            </div>
-            <!--/#register.form-action-->
-            <div id="reset" class="form-action hide">
-                <h1>Reset Password</h1>
-                <p>
-                    To reset your password enter your email and your birthday
-                    and we'll send you a link to reset your password.
-                </p>
-                <form>
-                    <ul>
-                        <li>
-                            <input type="text" placeholder="Email" />
-                        </li>
-                        <li>
-                            <input type="text" placeholder="Birthday" />
-                        </li>
-                        <li>
-                            <input type="submit" value="Send" class="button" />
-                        </li>
-                    </ul>
-                </form>
-            </div>
-            <!--/#register.form-action-->
+    <div class="flat-form">
+        <ul class="tabs">
+            <li>
+                <a href="#login" class="active">Login</a>
+            </li>
+            <li>
+                <a href="#register">Register</a>
+            </li>
+            <li>
+                <a href="#reset">Reset Password</a>
+            </li>
+        </ul>
+        <form method="POST" action="login.php">
+                <div id="login" class="form-action show">
+                    <h1>Login to EEDMIS!</h1>
+                    <p>
+                        Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
+                        Maecenas sed diam eget risus varius bladit sit amet non
+                    </p>
+                    <form>
+                        <ul>
+                            <li>
+                                <input name="username" type="text" placeholder="Username" />
+                            </li>
+                            <li>
+                                <input name="password" type="password" placeholder="Password" />
+                            </li>
+                            <li>
+                                <input type="submit" value="Login" class="button" />
+                            </li>
+                        </ul>
+                    </form>
+                </div>
+        </form>
+                <!--/#login.form-action-->
+        <form method="POST" action="register.php">
+                <div id="register" class="form-action hide">
+                    <h1>Register</h1>
+                    <?php
+                        session_start();
+                        if(isset($_SESSION["already-registered"])){
+                            if($_SESSION["already-registered"] == true){
+                                echo "<p>Account is already registered!</p>";
+                            }
+                        }
+                    ?>
+                    <form>
+                        <ul>
+                            <li>
+                                <input id="username" name="username" type="text" placeholder="Username" />
+                            </li>
+                            <li>
+                                <input id="password" name="password" type="password" placeholder="Password" />
+                            </li>
+                            <li>
+                                <input type="submit" value="Sign Up" class="button" />
+                            </li>
+                        </ul>
+                    </form>
+                </div>
+        </form>
+                <!--/#login.form-action-->
+        <form method="POST" action="forgot_account.php">
+                <!--/#register.form-action-->
+                <div id="reset" class="form-action hide">
+                    <h1>Reset Password</h1>
+                    <p>
+                        To reset your password enter your email and your birthday
+                        and we'll send you a link to reset your password.
+                    </p>
+                    <form>
+                        <ul>
+                            <li>
+                                <input type="text" placeholder="Email" />
+                            </li>
+                            <li>
+                                <input type="text" placeholder="Birthday" />
+                            </li>
+                            <li>
+                                <input type="submit" value="Send" class="button" />
+                            </li>
+                        </ul>
+                    </form>
+                </div>
+        </form>
+                <!--/#register.form-action-->
         </div>
     </div>
+    
+
     <script id="render-js">
 		(function( $ ) {
 			// constants

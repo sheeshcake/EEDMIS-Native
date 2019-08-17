@@ -1,0 +1,10 @@
+CREATE TABLE Users (
+id INT(6) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+username varchar(30) NOT NULL,
+password varchar(30) NOT NULL,
+firstname VARCHAR(30) NOT NULL,
+lastname VARCHAR(30) NOT NULL,
+email VARCHAR(50),
+reg_date TIMESTAMP,
+user_station varchar(30) NOT NULL
+);
