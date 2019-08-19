@@ -1,7 +1,7 @@
 <nav class="ts-sidebar">
 <ul class="sidebar navbar-nav">
       <li class="nav-item active">
-        <a class="nav-link" href="admin_index.php">
+        <a class="nav-link" href="admin_home.php">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Dashboard</span>
         </a>
