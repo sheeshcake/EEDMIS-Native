@@ -2,11 +2,6 @@
 session_start();
 error_reporting(0);
 include('includes/connect.php');
-if(strlen($_SESSION['alogin'])==0)
-  { 
-header('location:index.php');
-}
-else{
   ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -203,4 +198,3 @@ $bg=$query->rowCount();
 
 </body>
 </html>
-<?php } ?>
