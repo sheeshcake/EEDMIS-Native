@@ -1,3 +1,13 @@
+<?php
+session_start();
+error_reporting(0);
+include('includes/connect.php');
+if(strlen($_SESSION['alogin'])==0)
+  { 
+header('location:index.php');
+}
+else{
+  ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -26,6 +36,7 @@
     <!-- SEPARATE Sidebar -->
     <?php include('includes/sidebar.php');?>
 
+
     <div id="content-wrapper">
 
       <div class="container-fluid">
@@ -46,28 +57,42 @@
                 <div class="card-body-icon">
                   <i class="fas fa-fw fa-comments"></i>
                 </div>
-                <div class="mr-5">26 New Messages!</div>
-              </div>
-              <a class="card-footer text-white clearfix small z-1" href="#">
-                <span class="float-left">View Details</span>
-                <span class="float-right">
-                  <i class="fas fa-angle-right"></i>
-                </span>
-              </a>
-            </div>
+                <div class="stat-panel text-center">
+<?php 
+$sql ="SELECT user_id from users";
+$query = $dbh -> prepare($sql);
+$query->execute();
+$results=$query->fetchAll(PDO::FETCH_OBJ);
+$bg=$query->rowCount();
+?>
+                          <div class="stat-panel-number h1 "><?php echo htmlentities($bg);?></div>
+                          <div class="stat-panel-title text-uppercase">Total Users</div>
+                        </div>
+                      </div>
+                      <a href="user_list.php" class="block-anchor panel-footer">Full Detail <i class="fa fa-arrow-right"></i></a>
+                    </div>
           </div>
+
+          <!-- Daghan Pa ang E Edit-->
           <div class="col-xl-3 col-sm-6 mb-3">
             <div class="card text-white bg-warning o-hidden h-100">
               <div class="card-body">
                 <div class="card-body-icon">
-                  <i class="fas fa-fw fa-list"></i>
+                  <i class="fas fa-users"></i>
                 </div>
-                <div class="mr-5">11 New Tasks!</div>
-              </div>
-              <a class="card-footer text-white clearfix small z-1" href="#">
-                <span class="float-left">View Details</span>
-                <span class="float-right">
-                  <i class="fas fa-angle-right"></i>
+               <div class="stat-panel text-center">
+<?php 
+$sql ="SELECT user_id from users";
+$query = $dbh -> prepare($sql);
+$query->execute();
+$results=$query->fetchAll(PDO::FETCH_OBJ);
+$bg=$query->rowCount();
+?>
+                          <div class="stat-panel-number h1 "><?php echo htmlentities($bg);?></div>
+                          <div class="stat-panel-title text-uppercase">Total Users</div>
+                        </div>
+                      </div>
+                      <a href="user_list.php" class="block-anchor panel-footer">Full Detail <i class="fa fa-arrow-right"></i></a>
                 </span>
               </a>
             </div>
@@ -76,11 +101,21 @@
             <div class="card text-white bg-success o-hidden h-100">
               <div class="card-body">
                 <div class="card-body-icon">
-                  <i class="fas fa-fw fa-shopping-cart"></i>
+                  <i class="far fa-envelope"></i>
                 </div>
-                <div class="mr-5">123 New Orders!</div>
-              </div>
-              <a class="card-footer text-white clearfix small z-1" href="#">
+                <div class="stat-panel text-center">
+<?php 
+$sql ="SELECT user_id from users";
+$query = $dbh -> prepare($sql);
+$query->execute();
+$results=$query->fetchAll(PDO::FETCH_OBJ);
+$bg=$query->rowCount();
+?>
+                          <div class="stat-panel-number h1 "><?php echo htmlentities($bg);?></div>
+                          <div class="stat-panel-title text-uppercase">Total Users</div>
+                        </div>
+                      </div>
+                       <a class="card-footer text-white clearfix small z-1" href="#">
                 <span class="float-left">View Details</span>
                 <span class="float-right">
                   <i class="fas fa-angle-right"></i>
@@ -92,9 +127,9 @@
             <div class="card text-white bg-danger o-hidden h-100">
               <div class="card-body">
                 <div class="card-body-icon">
-                  <i class="fas fa-fw fa-life-ring"></i>
+                  <i class="fas fa-user-slash"></i>
                 </div>
-                <div class="mr-5">13 New Tickets!</div>
+                <div class="mr-5">0 Deleted Users!</div>
               </div>
               <a class="card-footer text-white clearfix small z-1" href="#">
                 <span class="float-left">View Details</span>
@@ -166,5 +201,5 @@
   <script src="js/demo/chart-area-demo.js"></script>
 
 </body>
-
 </html>
+<?php } ?>

@@ -76,32 +76,16 @@ if(isset($_POST['login'])) {
   $username = $_POST['username'];
   $password = $_POST['password'];
 
-  $sql_admin = "SELECT * FROM admin WHERE username = '$username' and password='$password'";
-  $result_admin = $conn->query($sql_admin);
-
   $sql_users = "SELECT * FROM users WHERE username = '$username' and password='$password'";
   $result_users = $conn->query($sql_users);
 
 
-  if($result_admin->num_rows > 0) {
-    $row = $result_admin->fetch_assoc();     
-
-    session_start();  
-    $_SESSION['name'] = $row['name'];
-    $_SESSION['admin_id'] = $row['admin_id'];
-    if($row['user_type'] == "admin"){
-      echo "<script>window.open('admin/admin_index.php','_self');</script>";
-    }
-  }
-  else if($result_users->num_rows > 0) {
+  if($result_users->num_rows  == 1) {
     $row = $result_users->fetch_assoc();     
 
     session_start();  
     $_SESSION['name'] = $row['name'];
-    $_SESSION['user_id'] = $row['user_id'];
-    echo "<script>window.open('index.php','_self');</script>";
-  }else{
-    echo "<script>alert('Invalid Username or Password!');</script>";       
+    echo "<script>window.open('" . $row["user_type"] . "/" . $row["user_type"] . "_home.php','_self');</script>";
   }
   
 } 
