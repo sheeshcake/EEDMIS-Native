@@ -2,6 +2,11 @@
 session_start();
 error_reporting(0);
 include('includes/connect.php');
+if(strlen($_SESSION['alogin'])==0)
+  { 
+header('location:../index.php');
+}
+else{
   ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -77,11 +82,11 @@ $bg=$query->rowCount();
                 </div>
                <div class="stat-panel text-center">
 <?php 
-  $sql ="SELECT user_id from users";
-  $query = $dbh -> prepare($sql);
-  $query->execute();
-  $results=$query->fetchAll(PDO::FETCH_OBJ);
-  $bg=$query->rowCount();
+$sql ="SELECT user_id from users";
+$query = $dbh -> prepare($sql);
+$query->execute();
+$results=$query->fetchAll(PDO::FETCH_OBJ);
+$bg=$query->rowCount();
 ?>
                           <div class="stat-panel-number h1 "><?php echo htmlentities($bg);?></div>
                           <div class="stat-panel-title text-uppercase">Total Users</div>
@@ -100,11 +105,11 @@ $bg=$query->rowCount();
                 </div>
                 <div class="stat-panel text-center">
 <?php 
-  $sql ="SELECT user_id from users";
-  $query = $dbh -> prepare($sql);
-  $query->execute();
-  $results=$query->fetchAll(PDO::FETCH_OBJ);
-  $bg=$query->rowCount();
+$sql ="SELECT user_id from users";
+$query = $dbh -> prepare($sql);
+$query->execute();
+$results=$query->fetchAll(PDO::FETCH_OBJ);
+$bg=$query->rowCount();
 ?>
                           <div class="stat-panel-number h1 "><?php echo htmlentities($bg);?></div>
                           <div class="stat-panel-title text-uppercase">Total Users</div>
@@ -197,3 +202,4 @@ $bg=$query->rowCount();
 
 </body>
 </html>
+<?php } ?>

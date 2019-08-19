@@ -85,7 +85,11 @@ if(isset($_POST['login'])) {
 
     session_start();  
     $_SESSION['name'] = $row['name'];
-    echo "<script>window.open('" . $row["user_type"] . "/" . $row["user_type"] . "_home.php','_self');</script>";
+    if($row['user_type'] == "admin"){
+      header("Location: admin/admin_home.php");
+    }
+
+    
   }
   
 } 
