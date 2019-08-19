@@ -85,9 +85,8 @@ if(isset($_POST['login'])) {
 
     session_start();  
     $_SESSION['name'] = $row['name'];
-    if($row['user_type'] == "admin"){
-      header("Location: admin/admin_home.php");
-    }
+    $_SESSION['user_type'] = $row['user_type'];
+    header("Location: " . $_SESSION['user_type'] ."/" . $_SESSION['user_type'] . "_home.php");
 
     
   }

@@ -4,7 +4,7 @@ error_reporting(0);
 include('includes/connect.php');
 if(strlen($_SESSION['alogin'])==0)
   { 
-header('location:../index.php');
+header('location:index.php');
 }
 else{
   ?>
@@ -19,7 +19,7 @@ else{
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>EEDMO - Dashboard</title>
+  <title>EEDMO Terminal - Dashboard</title>
 
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link href="vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
@@ -34,6 +34,7 @@ else{
   <div id="wrapper">
 
     <!-- SEPARATE Sidebar -->
+   
     <?php include('includes/sidebar.php');?>
 
 
