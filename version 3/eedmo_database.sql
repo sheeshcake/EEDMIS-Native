@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
+-- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 20, 2019 at 07:18 AM
--- Server version: 10.1.38-MariaDB
--- PHP Version: 7.3.4
+-- Generation Time: Aug 20, 2019 at 04:47 AM
+-- Server version: 10.1.35-MariaDB
+-- PHP Version: 7.2.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -21,26 +21,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `eedmo_database`
 --
-
--- --------------------------------------------------------
-
---
--- Table structure for table `admin`
---
-
-CREATE TABLE `admin` (
-  `admin_id` int(11) NOT NULL,
-  `username` varchar(50) NOT NULL,
-  `password` varchar(50) NOT NULL,
-  `name` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `admin`
---
-
-INSERT INTO `admin` (`admin_id`, `username`, `password`, `name`) VALUES
-(1, 'admin', 'admin', 'admin');
 
 -- --------------------------------------------------------
 
@@ -76,30 +56,27 @@ CREATE TABLE `notification` (
 
 CREATE TABLE `users` (
   `user_id` int(11) NOT NULL,
+  `name` int(11) NOT NULL,
   `username` varchar(100) NOT NULL,
   `password` varchar(100) NOT NULL,
   `email` varchar(100) NOT NULL,
   `gender` varchar(100) NOT NULL,
   `mobile` varchar(100) NOT NULL,
-  `image` varchar(100) NOT NULL
+  `image` varchar(100) NOT NULL,
+  `user_type` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`user_id`, `username`, `password`, `email`, `gender`, `mobile`, `image`) VALUES
-(1, 'test', 'test', 'test@gmail.com', 'Female', '6394317761', '');
+INSERT INTO `users` (`user_id`, `name`, `username`, `password`, `email`, `gender`, `mobile`, `image`, `user_type`) VALUES
+(1, 0, 'test', 'test', 'test@gmail.com', 'Female', '6394317761', '', 'admin'),
+(2, 0, 'terminal', 'terminal', '', 'male', '0000000', '', 'terminal');
 
 --
 -- Indexes for dumped tables
 --
-
---
--- Indexes for table `admin`
---
-ALTER TABLE `admin`
-  ADD PRIMARY KEY (`admin_id`);
 
 --
 -- Indexes for table `deleteduser`
@@ -124,12 +101,6 @@ ALTER TABLE `users`
 --
 
 --
--- AUTO_INCREMENT for table `admin`
---
-ALTER TABLE `admin`
-  MODIFY `admin_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
 -- AUTO_INCREMENT for table `deleteduser`
 --
 ALTER TABLE `deleteduser`
@@ -145,7 +116,7 @@ ALTER TABLE `notification`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
