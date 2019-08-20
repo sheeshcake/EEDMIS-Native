@@ -26,12 +26,12 @@
 
   <div class="container">
     <div class="card card-login mx-auto mt-5">
-      <div class="card-header">Login</div>
+      <div class="card-header"><center><h4>EEDMO</h4></center></div>
       <div class="card-body">
         
 
         <form method="post">
-
+          <h5>Login</h5>
           <div class="form-group">
             <div class="form-label-group">
               <input type="text" name="username" class="form-control" placeholder="Username" required="required" autofocus="autofocus">

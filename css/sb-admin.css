@@ -6985,6 +6985,9 @@ button.bg-light:focus {
 }
 
 .bg-dark {
+  background-image: url("../img/background.jpg");
+  background-repeat: no-repeat;
+  background-size: 100% ;
   background-color: #343a40 !important;
 }
 
