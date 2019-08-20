@@ -8,7 +8,14 @@ header('location:index.php');
 }
 else{
   ?>
-<!DOCTYPE html>
+
+
+
+
+
+  <!------MAO NI ANG SA TERMINAL? ----->
+
+  <!DOCTYPE html>
 <html lang="en">
 
 <head>
